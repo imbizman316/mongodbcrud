@@ -3,14 +3,13 @@ import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
 const getTopics = async () => {
-  const res = await fetch(
-    "https://mongodbcrud-5bfbq845s-mike-lees-projects-cf5c7136.vercel.app/api/topics",
-    {
-      // const res = await fetch("http://localhost:3000/api/topics", {
-      cache: "no-store",
-      // cache: "default",
-    }
-  );
+  const currentURL = await window.location.href;
+
+  const res = await fetch(`${currentURL}/api/topics`, {
+    // const res = await fetch("http://localhost:3000/api/topics", {
+    cache: "no-store",
+    // cache: "default",
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch topics");
