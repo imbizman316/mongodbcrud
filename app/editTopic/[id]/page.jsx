@@ -1,11 +1,13 @@
 import EditTopicForm from "@/components/EditTopicForm";
 
 const getTopicById = async (id) => {
-  
-  const res = await fetch(`localhost:3000/api/topics/${id}`, {
-    // cache: "default",
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://mongodbcrud-5bfbq845s-mike-lees-projects-cf5c7136.vercel.app/api/topics/${id}`,
+    {
+      // cache: "default",
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch topic");

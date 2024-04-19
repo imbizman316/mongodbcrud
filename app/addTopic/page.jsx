@@ -18,13 +18,16 @@ function AddTopic() {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/topics", {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ title, description }),
-      });
+      const res = await fetch(
+        "https://mongodbcrud-5bfbq845s-mike-lees-projects-cf5c7136.vercel.app/api/topics",
+        {
+          method: "post",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ title, description }),
+        }
+      );
 
       if (res.ok) {
         router.push("/");

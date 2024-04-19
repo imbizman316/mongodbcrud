@@ -10,9 +10,12 @@ function RemoveBtn({ id }) {
     const confirmed = confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://mongodbcrud-5bfbq845s-mike-lees-projects-cf5c7136.vercel.app/api/topics?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (res.ok) {
         router.refresh();
