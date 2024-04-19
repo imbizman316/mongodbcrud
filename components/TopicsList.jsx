@@ -1,10 +1,9 @@
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
+import React from "react";
 
-const getTopics = async () => {
-  const currentURL = window.location.href;
-
+const getTopics = async (currentURL) => {
   const res = await fetch(`${currentURL}/api/topics`, {
     // const res = await fetch("http://localhost:3000/api/topics", {
     cache: "no-store",
@@ -34,7 +33,12 @@ const getTopics = async () => {
 };
 
 async function TopicsList() {
-  const { topics } = await getTopics();
+  const [currentURL, setCurrentURL] = react.useState(null);
+  React.useEffect(() => {
+    setCurrentURL(window.location.href);
+  }, []);
+
+  const { topics } = await getTopics(currentURL);
 
   return (
     <>
