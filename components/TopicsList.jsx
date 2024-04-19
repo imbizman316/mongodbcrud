@@ -3,20 +3,31 @@ import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
 const getTopics = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/topics", {
-      cache: "no-store",
-      // cache: "default",
-    });
+  const res = await fetch("http://localhost:3000/api/topics", {
+    cache: "no-store",
+    // cache: "default",
+  });
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch topics");
-    }
-
-    return res.json();
-  } catch (error) {
-    console.log("Error loading topics", error);
+  if (!res.ok) {
+    throw new Error("Failed to fetch topics");
   }
+
+  return res.json();
+
+  // try {
+  //   const res = await fetch("http://localhost:3000/api/topics", {
+  //     cache: "no-store",
+  //     // cache: "default",
+  //   });
+
+  //   if (!res.ok) {
+  //     throw new Error("Failed to fetch topics");
+  //   }
+
+  //   return res.json();
+  // } catch (error) {
+  //   console.log("Error loading topics", error);
+  // }
 };
 
 async function TopicsList() {
