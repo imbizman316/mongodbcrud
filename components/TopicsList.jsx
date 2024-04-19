@@ -33,7 +33,7 @@ const getTopics = async (currentURL) => {
 };
 
 async function TopicsList() {
-  const [currentURL, setCurrentURL] = react.useState(null);
+  const [currentURL, setCurrentURL] = React.useState(null);
   React.useEffect(() => {
     setCurrentURL(window.location.href);
   }, []);
